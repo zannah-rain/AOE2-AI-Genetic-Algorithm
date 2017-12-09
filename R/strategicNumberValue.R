@@ -112,7 +112,9 @@ strategicNumberValue <- function() {
       c("sn-town-defend-priority", Pick1(0:7)),
       c("sn-track-player-history", Pick1(0:1)),
       c("sn-use-by-type-max-gathering", Pick1(0:1)),
-      c("sn-wood-dropsite-distance", Pick1(3:8)),
+      c("sn-wood-dropsite-distance", Pick1(3:100)),
+      c("sn-food-dropsite-distance", Pick1(3:100)),
+      c("sn-gold-dropsite-distance", Pick1(3:100)),
       c(156, Pick1(0:100)), # Resource gathering %s
       c(157, Pick1(0:100)),
       c(158, Pick1(0:100)),
