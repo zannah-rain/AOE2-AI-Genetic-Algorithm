@@ -6,3 +6,4 @@
 *.RData
 /man
 *.Rproj
+*.Rbuildignore
