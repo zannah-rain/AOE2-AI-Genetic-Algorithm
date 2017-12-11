@@ -2,7 +2,7 @@
 # Add initial strategic numbers to AI?
 # Not gathering stone because max-dropsite distance is 2!
 #   Could have more reasonable values in there?
-
+# Remove game type conditions, as don't intend to train for other types?
 
 
 # Add these SNs

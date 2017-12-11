@@ -10,11 +10,6 @@ Mutate.attackN <- function(x) {
   MutateTemplate(x, list(max(1, x[[1]] - 5), min(250, x[[1]] + 5)))
 }
 
-ActionString.buildForward <- function(x) {
-  # Needed because can't have a method with a dash in
-  paste0("(build-forward ", x[[1]], ")")
-}
-
 ActionString.buildGate <- function(x) {
   paste0("(build-gate ", x[[1]], ")")
 }
@@ -141,24 +136,6 @@ ActionString.tributeToPlayer <- function(x) {
 
 Mutate.tributeToPlayer <- function(x) {
   MutateTemplate(x, list(FRIENDLY_PLAYERS, RESOURCE_TYPES, 0:50))
-}
-
-ConditionString.build <- function(x) {
-  y <- paste0("(can-build ", x[[1]], ")")
-  if (x[[1]] == "wonder") {
-    # Wonder never useful in conquest
-    y <- paste0(y, "\n\t(not (victory-condition conquest))")
-  }
-  y
-}
-
-ConditionString.buildForward <- function(x) {
-  y <- paste0("(can-build ", x[[1]], ")")
-  if (x[[1]] == "wonder") {
-    # Wonder never useful in conquest
-    y <- paste0(y, "\n\t(not (victory-condition conquest))")
-  }
-  y
 }
 
 ConditionString.buildGate <- function(x) {
