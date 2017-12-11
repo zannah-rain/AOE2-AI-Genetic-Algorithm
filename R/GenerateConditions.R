@@ -43,7 +43,7 @@ GenerateConditions <- function(n){
       Gene(c("escrowAmount", "condition"), c(resourceType(), relop(), Pick1(0:1500))),
       Gene(c("food-amount", "condition"), c(relop(), Pick1(0:1000))),
       Gene(c("game-time", "condition"), c(relop(), Pick1(0:10000))),
-      Gene(c("game-type", "condition"), c(relop(), gameType())),
+      # Gene(c("game-type", "condition"), c(relop(), gameType())),
       Gene(c("gate-count", "condition"), c(perimeter(), relop(), Pick1(0:10))),
       Gene(c("goal", "condition"), c(goalId(), Pick1(0:10))),
       Gene(c("gold-amount", "condition"), c(relop(), Pick1(0:1500))),
