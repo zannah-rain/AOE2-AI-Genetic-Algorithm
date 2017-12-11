@@ -72,7 +72,7 @@ GenerateConditions <- function(n){
       Gene(c("population-cap", "condition"), c(relop(), Pick1(0:500))),
       Gene(c("population-headroom", "condition"), c(relop(), Pick1(0:25))),
       Gene(c("random-number", "condition"), c(relop(), Pick1(1:10))),
-      Gene(c("regicide-game", "condition")),
+      # Gene(c("regicide-game", "condition")), Nothing wrong with it but I'm not going to train on regicide games specifically so this will only break genes
       Gene(c("research-available", "condition"), researchItem()),
       Gene(c("research-completed", "condition"), researchItem()),
       Gene(c("resourceFound", "condition"), resourceType()),
