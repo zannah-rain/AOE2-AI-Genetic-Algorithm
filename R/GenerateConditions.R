@@ -34,7 +34,7 @@ GenerateConditions <- function(n){
       Gene(c("current-age", "condition"), c(relop(), age())),
       Gene(c("current-age-time", "condition"), c(relop(), Pick1(0:1000))),
       Gene(c("current-score", "condition"), c(relop(), Pick1(0:100000))),
-      Gene(c("death-match-game", "condition")),
+      # Gene(c("death-match-game", "condition")),
       Gene(c("defend-soldier-count", "condition"), c(relop(), Pick1(0:100))),
       Gene(c("defend-warboat-count", "condition"), c(relop(), Pick1(0:50))),
       Gene(c("dropsiteMinDistance", "condition"), c(resourceType(), relop(), Pick1(0:50))),
