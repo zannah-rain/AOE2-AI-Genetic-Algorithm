@@ -90,7 +90,7 @@ MutateItem <- function(x) {
     return(victoryCondition())
   } else if (x %in% STARTING_RESOURCES) {
     return(startingResources())
-  } else if (x %in% PLAYER_NUMBERS) {
+  } else if (x %in% FULL_PLAYER_NUMBERS) {
     return(playerNumber())
   } else if (x %in% MAP_TYPES) {
     return(mapType())

@@ -146,6 +146,24 @@ PLAYER_NUMBERS <-
     #"every-human",
     "every-neutral")
 
+FULL_PLAYER_NUMBERS <- # Only for backwards compatibility
+  c("any-ally",
+    "any-computer",
+    "any-computer-ally",
+    "any-computer-enemy",
+    "any-computer-neutral",
+    "any-enemy",
+    "any-human",
+    "any-human-ally",
+    "any-human-enemy",
+    "any-human-neutral",
+    "any-neutral",
+    "every-ally",
+    "every-computer",
+    "every-enemy",
+    "every-human",
+    "every-neutral")
+
 FRIENDLY_PLAYERS <-
   c("any-ally",
     #"any-computer-ally",
