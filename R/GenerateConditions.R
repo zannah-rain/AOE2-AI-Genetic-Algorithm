@@ -90,7 +90,7 @@ GenerateConditions <- function(n){
       Gene(c("unit-count-total", "condition"), c(relop(), Pick1(0:250))),
       Gene(c("unit-type-count", "condition"), c(unit(), relop(), Pick1(0:25))),
       Gene(c("unit-type-count-total", "condition"), c(unit(), relop(), Pick1(0:25))),
-      Gene(c("victory-condition", "condition"), victoryCondition()),
+      # Gene(c("victory-condition", "condition"), victoryCondition()),
       Gene(c("wall-completed-percentage", "condition"), c(perimeter(), relop(), Pick1(0:100))),
       Gene(c("wall-invisible-percentage", "condition"), c(perimeter(), relop(), Pick1(0:100))),
       Gene(c("warboat-count", "condition"), c(relop(), Pick1(0:50))),
