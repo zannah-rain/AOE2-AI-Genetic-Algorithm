@@ -7,7 +7,7 @@ ConditionString.attackN <- function(x) {
 }
 
 Mutate.attackN <- function(x) {
-  MutateTemplate(x, list(max(1, x[[1]] - 5), min(250, x[[1]] + 5)))
+  MutateTemplate(x, list(max(1, x[[1]] - 5):min(250, x[[1]] + 5)))
 }
 
 ActionString.buildGate <- function(x) {
