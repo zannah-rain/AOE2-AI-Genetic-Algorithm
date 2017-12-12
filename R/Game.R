@@ -78,7 +78,28 @@ Game <- function(ai_list, n_players = 8, keep_top_n = 2, delete_bottom_n = 2) {
     print(paste(ceiling(length(ai_list$still_to_fight) / n_players), "matches until next generation!"))
   } else { # None left to fight, restart!
     # Breeding happens after each game for large games, so just need to copy next generation to current!
-    ai_list$still_to_fight <- ai_list$won[sample(Index(ai_list$won))] # Scrambles them for next time too
+
+    # ai_list$still_to_fight <- ai_list$won[sample(Index(ai_list$won))] # Scrambles them for next time too
+
+    ai_list$still_to_fight <- ai_list$won
+    # Instead of scrambling the whole list, just swap one from each set to the next one
+    lower_group_boundaries <- seq(1, length(ai_list$still_to_fight), by = 8)
+    upper_group_boundaries <- seq(8, length(ai_list$still_to_fight), by = 8)
+    for (i in 1:length(lower_group_boundaries)) {
+      if (runif(1) < 0.1) {
+        swaps <- sample(0:7, 2)
+        swap_left <- swaps[1] + lower_group_boundaries[i]
+        right_index <- i + 1
+        if (right_index > length(lower_group_boundaries))
+          right_index <- 1
+        swap_right <- swaps[2] + lower_group_boundaries[right_index]
+        print(paste0("Swapping AIs: ", swap_left, ", ", swap_right))
+        temp <- ai_list$still_to_fight[swap_left]
+        ai_list$still_to_fight[swap_left] <- ai_list$still_to_fight[swap_right]
+        ai_list$still_to_fight[swap_right] <- temp
+      }
+    }
+
     ai_list$won <- list()
 
     if (is.null(ai_list$generation)) {
