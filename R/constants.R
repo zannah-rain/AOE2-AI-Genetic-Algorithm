@@ -357,7 +357,7 @@ STARTING_RESOURCES <-
     "high-resources")
 
 TIMER_IDS <-
-  1:10
+  2:10 # Timer 1 is earmarked for attackP
 
 UNITS <-
   c("archer-line",

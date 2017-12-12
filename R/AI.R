@@ -24,5 +24,8 @@ print.ai <- function(ai) {
   priority_order <- order(priorities, decreasing = TRUE)
   printed_rules <- sapply(ai$chromosomes, print)
   printed_rules <- printed_rules[priority_order]
+  printed_rules <-
+    c("(defrule(\n\t(true)\n\t=>\n\t(enable-timer 1 1)\n\t(disable-self)\n)",
+      printed_rules)
   paste(printed_rules, collapse = "\n")
 }

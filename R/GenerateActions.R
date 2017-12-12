@@ -2,13 +2,16 @@
 GenerateActions <- function(n) {
   sample(
     list(
-      Gene(c("attack-now", "action")),
-      Gene(c("attackN", "action"), Pick1(1:100)),
+      # Gene(c("attack-now", "action")),
+      # Gene(c("attackN", "action"), Pick1(1:100)),
+      Gene(c("attackP", "action"), Pick1(1:600)),
+      Gene(c("attackNP", "action"), Pick1(1:100), Pick1(1:600)),
       # Gene(c("build", "action"), building()),
       Gene(c("buildGate", "action"), perimeter()),
       Gene(c("buildN", "action"), c(building(), Pick1(1:5))),
       Gene(c("buildForwardN", "action"), c(building(), Pick1(1:3))),
       Gene(c("buildHouseN", "action"), Pick1(1:30)),
+      Gene(c("buildFarmNMO", "action"), c(Pick1(0:3), Pick1(0:500), Pick1(30:500))),
       Gene(c("build-wall", "action"), c(perimeter(), wallType())),
       # Gene(c("buy-commodity", "action"), commodity()),
       Gene(c("buyCommodityNMO", "action"), c(commodity(), Pick1(0:1000), Pick1(0:200), Pick1(100:3000))),
