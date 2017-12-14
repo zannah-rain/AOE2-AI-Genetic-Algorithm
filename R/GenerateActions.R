@@ -17,8 +17,9 @@ GenerateActions <- function(n) {
       Gene(c("buyCommodityNMO", "action"), c(commodity(), Pick1(0:1000), Pick1(0:200), Pick1(100:3000))),
       Gene(c("disable-self", "action")),
       Gene(c("disable-self", "action")),
-      Gene(c("disable-timer", "action"), timerId()),
+      # Gene(c("disable-timer", "action"), timerId()),
       Gene(c("enable-timer", "action"), c(timerId(), Pick1(1:600))), # I think the docs are wrong on this, also needs time to set it to
+      Gene(c("resetTriggeredTimerNP", "action"), c(timerId(), Pick1(2:600))),
       Gene(c("enable-wall-placement", "action"), perimeter()),
       Gene(c("generate-random-number", "action"), Pick1(1:10)),
       Gene(c("releaseEscrow", "action"), resourceType()),
