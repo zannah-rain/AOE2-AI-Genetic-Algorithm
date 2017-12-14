@@ -438,3 +438,165 @@ WALL_TYPES <-
     "fortified-wall",
     "palisade-wall",
     "stone-wall")
+
+INITIALISATION_RULES <-
+"
+(defrule
+	(true)
+  =>
+  (set-strategic-number sn-coop-share-information 1)
+  (set-strategic-number sn-hits-before-alliance-change 10)
+  (set-strategic-number sn-initial-exploration-required 0)
+  (set-strategic-number sn-home-exploration-time 360)
+  (set-strategic-number sn-easiest-reaction-percentage 100)
+  (set-strategic-number sn-easier-reaction-percentage 100)
+  (set-strategic-number sn-do-not-scale-for-difficulty-level 1)
+  (set-strategic-number sn-number-civilian-militia 3)
+  (set-strategic-number sn-wall-targeting-mode 1)
+  (disable-self)
+)
+
+(defrule
+  (true)
+  =>
+  (set-strategic-number sn-number-explore-groups 1)
+  (set-strategic-number sn-blot-exploration-map 0)
+  (set-difficulty-parameter ability-to-maintain-distance 0)
+  (set-difficulty-parameter ability-to-dodge-missiles 0)
+  (set-strategic-number sn-consecutive-idle-unit-limit 1)
+  (set-strategic-number sn-placement-zone-size 16)
+  (set-strategic-number sn-gather-defense-units 0)
+  (set-strategic-number sn-build-frequency 1)
+  (set-strategic-number sn-dock-training-filter 0) ;new, if 1 then only train boats in lakes with enemy ships
+  (disable-self)
+)
+
+(defrule
+	(game-time > 1)
+  =>
+	(set-strategic-number sn-retask-gather-amount 50)
+	(set-strategic-number sn-maximum-gaia-attack-response 3)
+	(set-strategic-number sn-allow-civilian-defense 1)
+	(set-strategic-number sn-intelligent-gathering 1)
+	(set-strategic-number sn-minimum-civilian-explorers 0)
+	(set-strategic-number sn-minimum-boar-hunt-group-size 6)
+	(set-strategic-number sn-number-build-attempts-before-skip 2)
+	(disable-self)
+)
+
+(defrule
+  (true)
+  =>
+  (set-strategic-number sn-minimum-defend-group-size 1)
+  (set-strategic-number sn-maximum-defend-group-size 1)
+  (set-strategic-number sn-percent-enemy-sighted-response 10)
+  (set-strategic-number sn-enemy-sighted-response-distance 20)
+  (set-strategic-number sn-coop-share-attacking 0)
+  (set-strategic-number sn-gather-defense-units 0) ;1 or 0, previously 2 but 2 does nothing
+  (set-strategic-number sn-scale-minimum-attack-group-size 0)
+  (set-strategic-number sn-scale-maximum-attack-group-size 0)
+  (set-strategic-number sn-defend-overlap-distance 1)
+  (disable-self)
+)
+
+(defrule
+  (true)
+  =>
+  (set-strategic-number sn-minimum-attack-group-size 5)
+  (set-strategic-number sn-maximum-attack-group-size 10)
+  (set-strategic-number sn-minimum-defend-group-size 3)
+  (set-strategic-number sn-maximum-defend-group-size 8)
+  (disable-self)
+)
+
+(defrule
+  (true)
+  =>
+  (set-strategic-number sn-maximum-gaia-attack-response 3)
+  (set-strategic-number sn-percent-exploration-required	0)
+  (set-strategic-number sn-random-placement-factor 0)
+  (set-strategic-number sn-relic-return-distance 1000)
+  (disable-self)
+)
+
+(defrule
+  (true)
+  =>
+  (set-strategic-number sn-target-evaluation-in-progress 0) ;0
+  (set-strategic-number sn-target-evaluation-boat 0) ;0
+  (set-strategic-number sn-target-evaluation-rof 0) ;0
+  (set-strategic-number sn-target-evaluation-continent 0) ;0
+  (set-strategic-number sn-target-evaluation-siege-weapon 100) ;100
+  (set-strategic-number sn-target-evaluation-distance 100) ;100
+  (set-strategic-number sn-target-evaluation-time-kill-ratio 0) ;0
+  (set-strategic-number sn-target-evaluation-hitpoints 100) ;100
+  (set-strategic-number sn-target-evaluation-damage-capability 1) ;1
+  (set-strategic-number sn-target-evaluation-kills 0) ;0
+  (set-strategic-number sn-target-evaluation-randomness 0) ;0
+  (set-strategic-number sn-target-evaluation-attack-attempts 0) ;0
+  (set-strategic-number sn-target-evaluation-range -100) ;-100
+  (set-strategic-number sn-target-evaluation-ally-proximity 0) ;0
+  (set-strategic-number sn-local-targeting-mode 1) ;new, supposedly makes skirms focus archers, etc
+  (set-strategic-number sn-ttkfactor-scalar 100) ;new, time to kill, if lower than 100 focus close units
+  (disable-self)
+)
+
+(defrule
+	(true)
+  =>
+	(set-strategic-number sn-target-evaluation-distance 1)
+	(set-strategic-number sn-target-evaluation-time-kill-ratio 1)
+	(set-strategic-number sn-target-evaluation-damage-capability 100)
+	(set-strategic-number sn-target-evaluation-in-progress 100)
+	(set-strategic-number sn-target-evaluation-hitpoints 100)
+  (disable-self)
+)
+
+(defrule
+  (true)
+  =>
+	(set-strategic-number sn-group-commander-selection-method 1)
+  (set-strategic-number sn-attack-separation-time-randomness 1)
+  (set-strategic-number sn-ignore-attack-group-under-attack 0)
+  (disable-self)
+)
+
+(defrule
+	(true)
+  =>
+  (set-strategic-number sn-gold-defend-priority 1)
+  (set-strategic-number sn-stone-defend-priority 3)
+  (set-strategic-number sn-forage-defend-priority 2)
+  (set-strategic-number sn-relic-defend-priority 1)
+  (set-strategic-number sn-town-defend-priority 1)
+  (set-strategic-number sn-defense-distance 3)
+  (set-strategic-number sn-defend-overlap-distance 5)
+  (set-strategic-number sn-gather-idle-soldiers-at-center 0)
+  (disable-self)
+)
+
+(defrule
+  (true)
+  =>
+  (set-strategic-number sn-group-leader-defense-distance 2) 	;normally 3, recently changed
+  (set-strategic-number sn-consecutive-idle-unit-limit 0)
+  (set-strategic-number sn-sentry-distance 8)
+  (set-strategic-number sn-sentry-distance-variation 2)
+  (set-strategic-number sn-dock-defend-priority 1)
+  (set-strategic-number sn-minimum-water-body-size-for-dock 1100)
+  (disable-self)
+)
+
+(defrule
+  (game-time >= 2)
+  =>
+  (set-difficulty-parameter ability-to-maintain-distance 0)
+  (set-difficulty-parameter ability-to-dodge-missiles 0)
+  (set-strategic-number sn-percent-enemy-sighted-response 90)
+  (set-strategic-number sn-enemy-sighted-response-distance 120)
+  (set-strategic-number sn-minimum-attack-group-size 15)
+  (set-strategic-number sn-maximum-attack-group-size 25)
+  (set-strategic-number sn-task-ungrouped-soldiers 0)
+  (set-strategic-number sn-minimum-water-body-size-for-dock 1000)
+  (disable-self)
+)"
