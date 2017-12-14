@@ -79,7 +79,7 @@ GenerateConditions <- function(n){
       Gene(c("shared-goal", "condition"), c(sharedGoalId(), Pick1(0:10))),
       Gene(c("sheep-and-forage-too-far", "condition")),
       Gene(c("soldier-count", "condition"), c(relop(), Pick1(0:150))),
-      Gene(c("stance-toward", "condition"), c(playerNumber(), diplomaticStance())),
+      # Gene(c("stance-toward", "condition"), c(playerNumber(), diplomaticStance())),
       # Gene(c("starting-age", "condition"), c(relop(), age())),
       # Gene(c("starting-resources", "condition"), c(relop(), startingResources())),
       Gene(c("stone-amount", "condition"), c(relop(), Pick1(0:1500))),
