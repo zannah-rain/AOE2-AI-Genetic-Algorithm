@@ -4,8 +4,8 @@ GenerateActions <- function(n) {
     list(
       # Gene(c("attack-now", "action")),
       # Gene(c("attackN", "action"), Pick1(1:100)),
-      Gene(c("attackP", "action"), Pick1(1:600)),
-      Gene(c("attackNP", "action"), Pick1(1:100), Pick1(1:600)),
+      Gene(c("attackP", "action"), Pick1(25:600)),
+      Gene(c("attackNP", "action"), c(Pick1(1:100), Pick1(25:600))),
       # Gene(c("build", "action"), building()),
       Gene(c("buildGate", "action"), perimeter()),
       Gene(c("buildN", "action"), c(building(), Pick1(1:5))),

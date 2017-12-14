@@ -9,5 +9,5 @@ ConditionString.attackP <- function(x) {
 
 Mutate.attackP <- function(x) {
   MutateTemplate(x,
-                 list(max(1, x[[1]][1] - 5):min(600, x[[1]][1] + 5)))
+                 list(max(25, as.numeric(x[[1]][1]) - 5):min(600, as.numeric(x[[1]][1]) + 5)))
 }
