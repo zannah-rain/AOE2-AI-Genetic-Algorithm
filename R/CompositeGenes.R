@@ -225,22 +225,6 @@ Mutate.escrowAmount <- function(x) {
   MutateTemplate(x, list(RESOURCE_TYPES, RELOPS, 0:1500))
 }
 
-ConditionString.playersTribute <- function(x) {
-  paste0("(players-tribute ", paste(x[[1]], collapse = " "), ")")
-}
-
-Mutate.playersTribute <- function(x) {
-  MutateTemplate(x, list(PLAYER_NUMBERS, RESOURCE_TYPES, RELOPS, 0:1000))
-}
-
-ConditionString.playersTributeMemory <- function(x) {
-  paste0("(players-tribute-memory ", paste(x[[1]], collapse = " "), ")")
-}
-
-Mutate.playersTributeMemory <- function(x) {
-  MutateTemplate(x, list(PLAYER_NUMBERS, RESOURCE_TYPES, RELOPS, 0:1000))
-}
-
 ConditionString.resourceFound <- function(x) {
   paste0("(resource-found ", paste(x[[1]], collapse = " "), ")")
 }
