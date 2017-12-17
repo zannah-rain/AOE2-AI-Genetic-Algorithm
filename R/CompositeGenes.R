@@ -28,9 +28,11 @@ ActionString.researchAge <- function(x) {
 
 ActionString.researchAgeWithEscrow <- function(x) {
   resources_needed <-
-    ifelse(x[[1]] == "feudal-age",
-           c("food"),
-           c("food", "gold"))
+    if(x[[1]] == "feudal-age") {
+      "food"
+    } else {
+      c("food", "gold")
+    }
   y <- paste(paste0("(release-escrow ", resources_needed, ")"), collapse = "\n\t")
   y <- paste0(y, "\n\t(research ", x[[1]], ")")
   y
