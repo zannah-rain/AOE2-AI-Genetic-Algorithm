@@ -1,3 +1,5 @@
+# attackP is a composite gene which bundles together attacking with checks around:
+# A timer to reduce attack command spam & potentially allow the ai to rebuild its army before attacking again
 
 #' @export
 ActionString.attackP <- function(x) {

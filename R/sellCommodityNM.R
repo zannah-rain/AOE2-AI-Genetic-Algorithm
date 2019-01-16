@@ -1,3 +1,7 @@
+# sellCommodityNM is a composite gene which bundles together buying / selling a given resource with checks around:
+# How much gold you have
+# What the buy/sell price of the given commodity is
+
 
 #' @export
 ActionString.sellCommodityNMO <- function(x) {

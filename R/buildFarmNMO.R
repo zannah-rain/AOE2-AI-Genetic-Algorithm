@@ -1,3 +1,7 @@
+# buildFarmNMO is a composite gene which bundles together building farms with checks around:
+# How many idle farms you have
+# How much food you have (more = less need for farms)
+# How much wood you have (less = potentially less priority for farms)
 
 #' @export
 ActionString.buildFarmNMO <- function(x) {

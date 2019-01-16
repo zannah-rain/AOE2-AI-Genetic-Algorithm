@@ -1,3 +1,4 @@
+#' Generate a valid condition gene at random.
 #' @export
 GenerateConditions <- function(n){
   sample(

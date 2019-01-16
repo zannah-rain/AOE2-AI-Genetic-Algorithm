@@ -1,3 +1,4 @@
+#' Generate a valid action gene at random.
 #' @export
 GenerateActions <- function(n) {
   sample(

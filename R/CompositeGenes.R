@@ -1,4 +1,4 @@
-# Collection of methods which allow for the functioning of more complicated genes which may include multiple conditions &/ actions
+# Collection of methods which allow for the functioning of the more self explanatory composite genes which may include multiple conditions &/ actions
 
 #' @export
 ActionString.attackN <- function(x) {

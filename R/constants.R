@@ -1,3 +1,5 @@
+# Stored groups of values which different parameters within rules can take.
+
 AGES <-
   c("dark-age",
     "feudal-age",
@@ -128,6 +130,7 @@ MAP_TYPES <-
 PERIMETERS <-
   1:2
 
+# Artificially limited, not due to functionality but due to the generalizability of the genes generated.
 PLAYER_NUMBERS <-
   c("any-ally",
     #"any-computer",
@@ -164,6 +167,7 @@ FULL_PLAYER_NUMBERS <- # Only for backwards compatibility
     "every-human",
     "every-neutral")
 
+# Artificially limited, not due to functionality but due to the generalizability of the genes generated.
 FRIENDLY_PLAYERS <-
   c("any-ally",
     #"any-computer-ally",

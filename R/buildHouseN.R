@@ -1,3 +1,5 @@
+# buildHouseN is a composite gene which bundles together building houses with checks around:
+# How much population headroom you have
 
 #' @export
 ActionString.buildHouseN <- function(x) {

@@ -17,6 +17,7 @@ AI <- function(chromosomes = NULL, mutation_rate = runif(1, min = 0.001, max = 0
   ai
 }
 
+#' Generate the entire AOE2 script for a given ai object.
 #' @export
 print.ai <- function(ai) {
   x <- ""

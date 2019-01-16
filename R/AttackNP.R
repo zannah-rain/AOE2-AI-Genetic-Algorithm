@@ -1,3 +1,6 @@
+# attackNP is a composite gene which bundles together attacking with checks around:
+# A timer to reduce attack command spam & potentially allow the ai to rebuild its army before attacking again
+# How many military units the ai has
 
 #' @export
 ActionString.attackNP <- function(x) {
