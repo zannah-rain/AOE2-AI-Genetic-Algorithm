@@ -1,13 +1,17 @@
+
+#' @export
 ActionString.attackNP <- function(x) {
   paste0("(attack-now)",
          "\n\t(enable-timer 1 ", x[[1]][2], ")")
 }
 
+#' @export
 ConditionString.attackNP <- function(x) {
   paste0("(military-population >= ", x[[1]][1], ")",
          "\n\t(timer-triggered 1)")
 }
 
+#' @export
 Mutate.attackNP <- function(x) {
   MutateTemplate(x,
                  list(max(1, as.numeric(x[[1]][1]) - 5):min(250, as.numeric(x[[1]][1]) + 5),

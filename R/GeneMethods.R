@@ -41,6 +41,7 @@ ConditionString <- function(x) {
   UseMethod("ConditionString")
 }
 
+#' @export
 ConditionString.chromosome <- function(x) {
   gene_strings <- sapply(x$genes, ConditionString)
   gene_strings <- gene_strings[!sapply(gene_strings, identical, NULL)]
@@ -50,6 +51,7 @@ ConditionString.chromosome <- function(x) {
   paste(paste0("\t", gene_strings), collapse = "\n")
 }
 
+#' @export
 ConditionString.condition <- function(x) {
   string <- paste0("(", head(class(x), 1))
   if (length(x[[1]]) > 0) {
@@ -58,6 +60,7 @@ ConditionString.condition <- function(x) {
   paste0(string, ")")
 }
 
+#' @export
 ConditionString.action <- function(x) {
   NULL
 }
@@ -82,6 +85,7 @@ ActionString <- function(x) {
   UseMethod("ActionString")
 }
 
+#' @export
 ActionString.chromosome <- function(x) {
   gene_strings <- sapply(x$genes, ActionString)
   gene_strings <- gene_strings[!sapply(gene_strings, identical, NULL)]
@@ -91,6 +95,7 @@ ActionString.chromosome <- function(x) {
   paste(paste0("\t", gene_strings), collapse = "\n")
 }
 
+#' @export
 ActionString.action <- function(x) {
   string <- paste0("(", head(class(x), 1))
   if (length(x[[1]]) > 0) {
@@ -99,6 +104,7 @@ ActionString.action <- function(x) {
   paste0(string, ")")
 }
 
+#' @export
 ActionString.condition <- function(x) {
   NULL
 }

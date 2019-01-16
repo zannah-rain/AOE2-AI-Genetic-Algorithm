@@ -1,7 +1,29 @@
+#' Generic to apply random mutation to various genetic objects.
+#'
+#' @param x An ai, chromosome or gene.
+#' @param ... Other arguments to the specific method.
+#'
+#' @return A (possibly) mutated version of the given object x.
+#' @export
+#'
+#' @examples
+#' a <- Gene(c("buildN", "action"), c("university", "1"))
+#' b <- lapply(1:25, function(x) {Mutate(a)})
+#' unique(sapply(b, ConditionString))
 Mutate <- function(x, ...) {
   UseMethod("Mutate")
 }
 
+#' Apply random mutation to a complete ai (list of chromosomes along with a mutation rate).
+#'
+#' The mutation rate itself is first changed slightly (randomly).
+#' Mutation is then applied to each chromosome in the ai with the given mutation rate.
+#'
+#' @param x An ai.
+#' @param ... Not used.
+#'
+#' @return A (possibly) mutated version of the given ai x.
+#' @export
 Mutate.ai <- function(x, ...) {
   x$mutation_rate <- boot::inv.logit(boot::logit(x$mutation_rate) + runif(1, min = -0.05, max = 0.05))
   for (i in Index(x$chromosomes)) {
@@ -10,6 +32,14 @@ Mutate.ai <- function(x, ...) {
   x
 }
 
+#' Apply random mutation to a complete chromosome (list of genes along with a priority).
+#'
+#' @param x A chromosome.
+#' @param rate The rate of mutation to apply (probability to apply any mutation).
+#' @param ... Not used.
+#'
+#' @return A (possibly) mutated version of the chromosome x.
+#' @export
 Mutate.chromosome <- function(x, rate, ...) {
   if (runif(1) < rate) {
     mutation <- Pick1(c("delete-gene",
@@ -54,6 +84,20 @@ Mutate.chromosome <- function(x, rate, ...) {
   x
 }
 
+#' Apply random mutation to an individual gene.
+#'
+#' A random parameter within the gene is selected to undergo mutation via MutateItem.
+#'
+#' @param x A gene.
+#' @param ... Not used.
+#'
+#' @return A mutated version of the given gene.
+#' @export
+#'
+#' @examples
+#' a <- Gene(c("buildN", "action"), c("university", "1"))
+#' b <- lapply(1:25, function(x) {Mutate(a)})
+#' unique(sapply(b, ConditionString))
 Mutate.gene <- function(x, ...) {
   if (length(x[[1]]) == 0) {
     return(x)
@@ -73,6 +117,7 @@ MutateTemplate <- function(x, allowed_values) {
   x
 }
 
+#' Randomly pick from compatible values.
 MutateItem <- function(x) {
   if (x %in% AGES) {
     return(age())
