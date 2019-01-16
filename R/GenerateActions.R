@@ -35,7 +35,7 @@ GenerateActions <- function(n) {
       Gene(c("set-goal", "action"), c(goalId(), Pick1(0:10))),
       Gene(c("set-shared-goal", "action"), c(sharedGoalId(), Pick1(0:10))),
       Gene(c("set-signal", "action"), signalId()),
-      # Gene(, "set-stance", "action"), playerNumber(), diplomaticStance()),
+      # Gene(, "set-stance", "action"), "every-enemy", diplomaticStance()),
       Gene(c("set-strategic-number", "action"), strategicNumberValue()),
       Gene(c("set-strategic-number", "action"), strategicNumberValue()),
       Gene(c("spy", "action")),
@@ -45,8 +45,8 @@ GenerateActions <- function(n) {
       Gene(c("trainBarracksN", "action"), c(Pick1(UNITS_BARRACKS), Pick1(1:30))),
       Gene(c("trainDocks", "action"), Pick1(UNITS_DOCKS)),
       Gene(c("trainDocksN", "action"), c(Pick1(UNITS_DOCKS), Pick1(1:30))),
-      Gene(c("rebalanceGatherers", "action"), c(Pick1(0:100), Pick1(0:100), Pick1(0:100), Pick1(0:100))),
-      Gene(c("tributeToPlayer", "action"), c(Pick1(FRIENDLY_PLAYERS), resourceType(), Pick1(1:50)))
+      Gene(c("rebalanceGatherers", "action"), c(Pick1(0:100), Pick1(0:100), Pick1(0:100), Pick1(0:100), Pick1(0:100), Pick1(0:100), Pick1(0:100), Pick1(0:100)))
+      # Gene(c("tributeToPlayer", "action"), c(Pick1(FRIENDLY_PLAYERS), resourceType(), Pick1(1:50)))
     ),
     n
   )

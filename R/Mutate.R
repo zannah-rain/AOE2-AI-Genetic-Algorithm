@@ -91,7 +91,7 @@ MutateItem <- function(x) {
   } else if (x %in% STARTING_RESOURCES) {
     return(startingResources())
   } else if (x %in% FULL_PLAYER_NUMBERS) {
-    return(playerNumber())
+    return("every-enemy")
   } else if (x %in% MAP_TYPES) {
     return(mapType())
   } else if (x %in% DIPLOMATIC_STANCES) {
