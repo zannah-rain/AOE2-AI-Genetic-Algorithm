@@ -92,14 +92,6 @@ ActionString.buildWall <- function(x) {
   paste0("(build-wall ", paste(x[[1]], collapse = " "), ")")
 }
 
-ActionString.clearTributeMemory <- function(x) {
-  paste0("(clear-tribute-memory ", paste(x[[1]], collapse = " "), ")")
-}
-
-Mutate.clearTributeMemory <- function(x) {
-  MutateTemplate(x, list(PLAYER_NUMBERS, RESOURCE_TYPES))
-}
-
 ActionString.rebalanceGatherers <- function(x) {
   # Handles all 4 sn-*res*-gatherer-percentages at once
   percentages <- round(as.numeric(x[[1]][1:4]) * 100 / sum(x[[1]]))
@@ -109,11 +101,21 @@ ActionString.rebalanceGatherers <- function(x) {
   paste0("(set-strategic-number sn-wood-gatherer-percentage ", percentages[1], ")",
          "\n\t(set-strategic-number sn-food-gatherer-percentage ", percentages[2], ")",
          "\n\t(set-strategic-number sn-gold-gatherer-percentage ", percentages[3], ")",
-         "\n\t(set-strategic-number sn-stone-gatherer-percentage ", 100 - sum(percentages[1:3]), ")")
+         "\n\t(set-strategic-number sn-stone-gatherer-percentage ", 100 - sum(percentages[1:3]), ")",
+         "\n\t(set-escrow-percentage wood ", x[[1]][5], ")",
+         "\n\t(set-escrow-percentage food ", x[[1]][6], ")",
+         "\n\t(set-escrow-percentage gold ", x[[1]][7], ")",
+         "\n\t(set-escrow-percentage stone ", x[[1]][8], ")")
 }
 
 Mutate.rebalanceGatherers <- function(x) {
-  MutateTemplate(x, list(0:100, 0:100, 0:100, 0:100))
+  MutateTemplate(x,
+                 lapply(
+                   x[[1]],
+                   function(x) {
+                     max(0, min(100, Pick1((x - 5):(x + 5))))
+                   }
+                 ))
 }
 
 ActionString.releaseEscrow <- function(x) {
@@ -130,14 +132,6 @@ ActionString.setEscrowPercentage <- function(x) {
 
 Mutate.setEscrowPercentage <- function(x) {
   MutateTemplate(x, list(RESOURCE_TYPES, 0:100))
-}
-
-ActionString.tributeToPlayer <- function(x) {
-  paste0("(tribute-to-player ", paste(x[[1]], collapse = " "), ")")
-}
-
-Mutate.tributeToPlayer <- function(x) {
-  MutateTemplate(x, list(FRIENDLY_PLAYERS, RESOURCE_TYPES, 0:50))
 }
 
 ConditionString.buildGate <- function(x) {
