@@ -4,7 +4,7 @@ Duel <- function(ai_list) {
     print("Duelling!")
     print(paste("AI1:", length(ai_list$still_to_fight[[1]]$chromosomes), ai_list$still_to_fight[[1]]$mutation_rate))
     print(paste("AI2:", length(ai_list$still_to_fight[[2]]$chromosomes), ai_list$still_to_fight[[1]]$mutation_rate))
-    folder <- "C:\\Program Files (x86)\\Steam\\SteamApps\\common\\Age2HD\\resources\\_common\\ai\\"
+    folder <- AOE2_AI_FOLDER
     write(print(ai_list$still_to_fight[[1]]), file.path(folder, "GeneticAI 1.per"))
     write(print(ai_list$still_to_fight[[2]]), file.path(folder, "GeneticAI 2.per"))
     winner <- readline("Who won: (1 / 2)")

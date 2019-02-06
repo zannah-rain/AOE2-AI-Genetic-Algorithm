@@ -1,7 +1,7 @@
 # Only needs running once
 #' @export
 InitialiseFiles <- function() {
-  folder <- "C:\\Program Files (x86)\\Steam\\SteamApps\\common\\Age2HD\\resources\\_common\\ai\\"
+  folder <- AOE2_AI_FOLDER
 
   for (i in 1:8) {
     write("", file.path(folder, paste0("GeneticAI ", i, ".ai")))

@@ -29,7 +29,7 @@ Game <- function(ai_list, n_players = 8, keep_top_n = 2, delete_bottom_n = 2) {
 
   if (n_contenders >= n_players) {
     print("Fight!")
-    folder <- "C:\\Program Files (x86)\\Steam\\SteamApps\\common\\Age2HD\\resources\\_common\\ai\\"
+    folder <- AOE2_AI_FOLDER
     for (i in 1:n_players) {
       print(paste0("Writing AI", i, ": ", length(ai_list$still_to_fight[[i]]$chromosomes), ", ", ai_list$still_to_fight[[i]]$mutation_rate))
       write(print(ai_list$still_to_fight[[i]]), file.path(folder, paste0("GeneticAI ", i, ".per")))
